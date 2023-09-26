@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captcha</title>
+    <link rel="icon" href="/static/image/TesteCap.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Alinhe o captcha e o botão à esquerda */
+            flex-direction: column;
+        }
+
+        #captcha-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .reload-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px; /* Adicione margem superior para separar o botão da imagem */
+        }
+
+        .reload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .reload-button.red {
+            background-color: #ff0000; /* Cor vermelha */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #007BFF;
+        }
+
+        .reload-button i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Captcha:</h1>
+    <h2>Olá, você não é um robô? Faça o teste e descubra!</h2>
+    <div class="captcha-container">
+        <img src="{{ url_for('static', filename='image/element_image.png') }}" alt="Captcha Image" id="captcha-image">
+        <button id="reload-captcha" class="reload-button">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    </div>
+    <form method="post" action="/check">
+        <label for="captcha_input">Digite o Captcha:</label>
+        <input type="text" id="captcha_input" name="captcha_input">
+        <input type="hidden" name="captcha_text" value="{{ captcha_text }}">
+        <input type="submit" value="Verificar">
+        <input type="reset" value="Reiniciar" class="reload-button red"> <!-- Aplicar a classe "red" aqui também -->
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reloadButton = document.getElementById('reload-captcha');
+
+            // Função para recarregar a página
+            function reloadPage() {
+                location.reload();
+            }
+
+            // Adicione um evento de clique ao botão para recarregar a página
+            reloadButton.addEventListener('click', function () {
+                reloadPage();
+            });
+        });
+    </script>
+</body>
+</html>
