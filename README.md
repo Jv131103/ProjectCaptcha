@@ -76,7 +76,7 @@ python app.py
 5. A aplicação informará se o CAPTCHA foi preenchido corretamente ou não.
 
 ## Arquivos do Projeto
-app.py: O arquivo principal da aplicação Flask que contém as rotas e a lógica da aplicação.
+app.py: O arquivo principal da aplicação Flask que contém as rotas e a lógica da aplicação.<br>
 cp.py: O arquivo que contém a classe CreateCaptcha responsável pela geração e validação do CAPTCHA.
 templates/captcha.html: O arquivo HTML que exibe o CAPTCHA e a interface do usuário.
 
