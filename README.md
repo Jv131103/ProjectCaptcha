@@ -80,7 +80,8 @@ python app.py
 O arquivo principal da aplicação Flask que contém as rotas e a lógica da aplicação.<br>
 ### cp.py: 
 O arquivo que contém a classe CreateCaptcha responsável pela geração e validação do CAPTCHA.
-templates/captcha.html: O arquivo HTML que exibe o CAPTCHA e a interface do usuário.
+##templates/captcha.html: 
+O arquivo HTML que exibe o CAPTCHA e a interface do usuário.
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novos recursos para este projeto. Basta abrir uma issue ou enviar um pull request no GitHub.
