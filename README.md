@@ -46,7 +46,39 @@ Certifique-se de ter instalada a biblioteca Pillow (PIL) para manipulação de i
 
 ```Terminal
 pip install Pillow
+pip install flask
+pip install Flask Pillow
 ```
+
+# Flask Captcha Example
+
+Este é um exemplo simples de aplicação web Flask que gera e valida CAPTCHAs (Completely Automated Public Turing test to tell Computers and Humans Apart) usando a classe `CreateCaptcha`.
+
+## Visão Geral
+
+Esta aplicação web tem duas rotas principais:
+
+. `/`: Esta rota gera um novo CAPTCHA e exibe-o na página da web para o usuário. O usuário pode preencher o CAPTCHA e verificar se está correto clicando em "Verificar".
+
+. `/check`: Esta rota recebe a resposta do usuário para o CAPTCHA e verifica se ela está correta ou não. Em seguida, exibe uma mensagem apropriada.
+
+1. Execute a aplicação Flask:
+``` python
+python app.py
+```
+
+2. Acesse a aplicação em seu navegador em http://localhost:5000/ (ou outro endereço e porta, se configurado de forma diferente).
+
+3. Você verá um CAPTCHA gerado na página. Copie o texto do CAPTCHA exibido.
+
+4. Cole o texto do CAPTCHA no campo de entrada e clique em "Verificar".
+
+5. A aplicação informará se o CAPTCHA foi preenchido corretamente ou não.
+
+## Arquivos do Projeto
+app.py: O arquivo principal da aplicação Flask que contém as rotas e a lógica da aplicação.
+cp.py: O arquivo que contém a classe CreateCaptcha responsável pela geração e validação do CAPTCHA.
+templates/captcha.html: O arquivo HTML que exibe o CAPTCHA e a interface do usuário.
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novos recursos para este projeto. Basta abrir uma issue ou enviar um pull request no GitHub.
